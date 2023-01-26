@@ -1,0 +1,7 @@
+{
+  "name": "mediaEasyApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
