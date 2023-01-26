@@ -1,0 +1,31 @@
+<ion-text color="primary">
+  <h2>Crear cuenta</h2>
+</ion-text>
+
+<ion-item>
+  <ion-label position="floating">Nombre</ion-label>
+  <ion-input type="text"></ion-input>
+</ion-item>
+<br>
+<ion-item>
+  <ion-label position="floating">Correo</ion-label>
+  <ion-input type="email"></ion-input>
+</ion-item>
+<br>
+<ion-item>
+  <ion-label position="floating">Contraseña</ion-label>
+  <ion-input type="password"></ion-input>
+</ion-item>
+<br>
+
+<ion-item>
+  <ion-label position="floating">Confirmar contraseña</ion-label>
+  <ion-input type="password"></ion-input>
+</ion-item>
+<br>
+
+<ion-button expand="block">Crear</ion-button>
+<ion-text>
+  <span>¿Yas tienes una cuenta? </span>
+</ion-text>
+<ion-button  fill="clear" (click)="irIniciarSesion()" color="warning">Iniciar sesión</ion-button>
