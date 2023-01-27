@@ -1,20 +1,51 @@
+
 <ion-text color="primary">
-  <h2>Inicio de sesión</h2>
+  <h2>{{"page.iniciarSesion.title.inicioSesion" | translate}}</h2>
 </ion-text>
+<form [formGroup]="loginForm">
+  <ion-item>
+    <ion-label position="floating">{{"page.iniciarSesion.input.correo" | translate}}
+      <ion-text color="danger"><span> * </span>
+      </ion-text>
+    </ion-label>
+    <ion-input
+      type="email"
+      formControlName="email"
+      required="true"
+      ></ion-input>
+  </ion-item>
+  <!-- Error requerido -->
+  <ion-note
+    *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched"
+    slot="error"><ion-text color="danger">{{"COMMON.errors.msg.requerido" | translate}}</ion-text>
+  </ion-note>
+  <!-- Error correo -->
+  <ion-note
+    *ngIf="loginForm.controls['email'].hasError('email') && loginForm.controls['email'].touched"
+    slot="error"><ion-text color="danger">{{"COMMON.errors.msg.pattern.correo" | translate}}</ion-text>
+  </ion-note>
+  <br>
+  <ion-item>
+    <ion-label position="floating">{{"page.iniciarSesion.input.contraseña" | translate}}
+      <ion-text color="danger"><span> * </span>
+      </ion-text>
+    </ion-label>
+    <ion-input
+      type="password"
+      formControlName="password"
+      required="true"
+      ></ion-input>
+  </ion-item>
+  <ion-note
+    *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched"
+    slot="error"><ion-text color="danger">{{"COMMON.errors.msg.requerido" | translate}}</ion-text>
+  </ion-note>
+  <br>
 
-<ion-item>
-  <ion-label position="floating">Correo</ion-label>
-  <ion-input type="email"></ion-input>
-</ion-item>
-<br>
-<ion-item>
-  <ion-label position="floating">Contraseña</ion-label>
-  <ion-input type="password"></ion-input>
-</ion-item>
-<br>
+  <ion-button expand="block" >{{"page.iniciarSesion.btn.ingresar" | translate}}</ion-button>
+  <ion-text>
+    <span>{{"page.iniciarSesion.label.aunNoTienesCuenta" | translate}} </span>
+  </ion-text>
+  <ion-button  fill="clear" (click)="irCrearCuenta()" color="warning">{{"page.iniciarSesion.btn.crearCuenta" | translate}}</ion-button>
 
-<ion-button expand="block" >Ingresar</ion-button>
-<ion-text>
-  <span>¿Aún no tienes una cuenta? </span>
-</ion-text>
-<ion-button  fill="clear" (click)="irCrearCuenta()" color="warning">Crear cuenta</ion-button>
+</form>

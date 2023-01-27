@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConstantesPath } from 'src/app/constantes/paths';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -10,8 +11,14 @@ import { ConstantesPath } from 'src/app/constantes/paths';
 })
 export class IniciarSesionComponent implements OnInit {
 
+  public loginForm: FormGroup = this.fb.group({
+    email: [null, [Validators.required,Validators.email]],
+    password: [null, Validators.required]
+  })
+
   constructor(
     private router: Router,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit() {}

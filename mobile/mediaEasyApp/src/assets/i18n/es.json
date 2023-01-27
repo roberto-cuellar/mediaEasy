@@ -1,0 +1,28 @@
+{
+
+  "IMAGEN.CORPORATIVA.TITULO":"EasyMedia",
+
+  "page.crearCuenta.title.crearCuenta": "Crear cuenta",
+  "page.crearCuenta.input.nombre": "Nombre",
+  "page.crearCuenta.input.correo": "Correo",
+  "page.crearCuenta.input.contraseña": "Contraseña",
+  "page.crearCuenta.input.confirmarContrasena": "Confirmar contraseña",
+  "page.crearCuenta.label.yaTienesCuenta": "¿Ya tienes una cuenta?",
+  "page.crearCuenta.btn.iniciarSesion": "Iniciar sesión",
+
+  "page.iniciarSesion.title.inicioSesion": "Inicio de sesión",
+  "page.iniciarSesion.input.correo": "Correo",
+  "page.iniciarSesion.input.contraseña": "Contraseña",
+  "page.iniciarSesion.label.aunNoTienesCuenta": "¿Aún no tienes una cuenta?",
+  "page.iniciarSesion.btn.ingresar": "Ingresar",
+  "page.iniciarSesion.btn.iniciarSesion": "Iniciar sesión",
+  "page.iniciarSesion.btn.crearCuenta": "Crear cuenta",
+
+
+  "COMMON.btn.crear":"Crear",
+  "COMMON.errors.msg.requerido":"Este campo es requerido",
+  "COMMON.errors.msg.pattern.alfabeticos":"Este campo solo acepta valores alfabéticos",
+  "COMMON.errors.msg.pattern.alfanumericos":"Este campo solo acepta valores alfanuméricos",
+  "COMMON.errors.msg.pattern.numericos":"Este campo solo acepta valores numéricos",
+  "COMMON.errors.msg.pattern.correo":"Ingrese un correo valido"
+}

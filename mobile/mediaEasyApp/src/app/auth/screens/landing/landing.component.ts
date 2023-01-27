@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -7,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private translateService:TranslateService){
+
+  }
 
   ngOnInit() {}
+
+  traducir(){
+    this.translateService.use('en')
+  }
 
 }

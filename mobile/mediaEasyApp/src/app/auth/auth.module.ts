@@ -6,6 +6,9 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { CrearCuentaComponent } from './screens/crear-cuenta/crear-cuenta.component';
 import { IniciarSesionComponent } from './screens/iniciar-sesion/iniciar-sesion.component';
 import { LandingComponent } from './screens/landing/landing.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+
 
 
 @NgModule({
@@ -17,7 +20,13 @@ import { LandingComponent } from './screens/landing/landing.component';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    IonicModule
+    IonicModule,
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
-export class AuthModule { }
+export class AuthModule {
+
+
+
+}

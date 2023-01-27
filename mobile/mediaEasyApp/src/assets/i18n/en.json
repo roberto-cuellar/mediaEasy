@@ -1,0 +1,8 @@
+{
+  "HOME": {
+      "TITLE": "i18n (Internazionalization) example to Angular Project",
+      "ENGLISH": "English",
+      "SPANISH": "Spanish"
+  },
+  "PRUEBA":"HI HI HI"
+}

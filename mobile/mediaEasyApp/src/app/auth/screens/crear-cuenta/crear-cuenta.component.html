@@ -1,31 +1,93 @@
 <ion-text color="primary">
-  <h2>Crear cuenta</h2>
+  <h2>{{"page.crearCuenta.title.crearCuenta" | translate}}</h2>
 </ion-text>
 
-<ion-item>
-  <ion-label position="floating">Nombre</ion-label>
-  <ion-input type="text"></ion-input>
-</ion-item>
-<br>
-<ion-item>
-  <ion-label position="floating">Correo</ion-label>
-  <ion-input type="email"></ion-input>
-</ion-item>
-<br>
-<ion-item>
-  <ion-label position="floating">Contraseña</ion-label>
-  <ion-input type="password"></ion-input>
-</ion-item>
-<br>
+<form [formGroup]="registerForm">
 
-<ion-item>
-  <ion-label position="floating">Confirmar contraseña</ion-label>
-  <ion-input type="password"></ion-input>
-</ion-item>
-<br>
+  <!-- Nombre -->
+  <ion-item>
+    <ion-label position="floating">{{"page.crearCuenta.input.nombre" | translate}}
+      <ion-text color="danger"><span> * </span>
+      </ion-text>
+    </ion-label>
+    <ion-input
+      type="text"
+      formControlName="nombre"
+      required="true"
+        >
+    </ion-input>
+  </ion-item>
+  <!-- Error requerido -->
+  <ion-note
+    *ngIf="registerForm.controls['nombre'].hasError('required') && registerForm.controls['nombre'].touched"
+    slot="error"><ion-text color="danger">{{"COMMON.errors.msg.requerido" | translate}}</ion-text>
+  </ion-note>
+  <!-- Error alfabetico -->
+  <ion-note
+    *ngIf="registerForm.controls['nombre'].hasError('pattern') && registerForm.controls['nombre'].touched"
+    slot="error"><ion-text color="danger">{{"COMMON.errors.msg.pattern.alfabeticos" | translate}}</ion-text>
+  </ion-note>
+  <br>
+  <!-- Correo -->
+  <ion-item>
+    <ion-label position="floating">{{"page.crearCuenta.input.correo" | translate}}
+      <ion-text color="danger"><span> * </span>
+      </ion-text>
+    </ion-label>
+    <ion-input
+      type="email"
+      formControlName="email"
+      ></ion-input>
+  </ion-item>
+  <!-- Error requerido -->
+  <ion-note
+    *ngIf="registerForm.controls['email'].hasError('required') && registerForm.controls['email'].touched"
+    slot="error"><ion-text color="danger">{{"COMMON.errors.msg.requerido" | translate}}</ion-text>
+  </ion-note>
+  <!-- Error correo -->
+  <ion-note
+    *ngIf="registerForm.controls['email'].hasError('email') && registerForm.controls['email'].touched"
+    slot="error"><ion-text color="danger">{{"COMMON.errors.msg.pattern.correo" | translate}}</ion-text>
+  </ion-note>
+  <br>
 
-<ion-button expand="block">Crear</ion-button>
-<ion-text>
-  <span>¿Yas tienes una cuenta? </span>
-</ion-text>
-<ion-button  fill="clear" (click)="irIniciarSesion()" color="warning">Iniciar sesión</ion-button>
+  <!-- Password -->
+  <ion-item>
+    <ion-label position="floating">{{"page.crearCuenta.input.contraseña" | translate}}
+      <ion-text color="danger"><span> * </span>
+      </ion-text>
+    </ion-label>
+    <ion-input
+      type="password"
+      formControlName="password"
+      ></ion-input>
+  </ion-item>
+  <ion-note
+    *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched"
+    slot="error"><ion-text color="danger">{{"COMMON.errors.msg.requerido" | translate}}</ion-text>
+  </ion-note>
+  <br>
+
+  <ion-item>
+    <ion-label position="floating">{{"page.crearCuenta.input.confirmarContrasena" | translate}}
+      <ion-text color="danger"><span> * </span>
+      </ion-text>
+    </ion-label>
+    <ion-input
+      type="password"
+      formControlName="confirmPassword"
+      ></ion-input>
+  </ion-item>
+  <ion-note
+    *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched"
+    slot="error"><ion-text color="danger">{{"COMMON.errors.msg.requerido" | translate}}</ion-text>
+  </ion-note>
+  <br>
+
+  <ion-button expand="block" (click)="crearCuenta()">{{"COMMON.btn.crear" | translate}}</ion-button>
+  <ion-text>
+    <span>{{"page.crearCuenta.label.yaTienesCuenta" | translate}}</span>
+  </ion-text>
+  <ion-button  fill="clear" (click)="irIniciarSesion()" color="warning">{{"page.crearCuenta.btn.iniciarSesion" | translate}}</ion-button>
+
+</form>
