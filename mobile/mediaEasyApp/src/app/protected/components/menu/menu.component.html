@@ -1,0 +1,42 @@
+<ion-menu contentId="main-content" side="end">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title slot="">Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+
+    <ion-list>
+
+      <!-- Btns del menu -->
+      <ion-item  *ngFor="let menuItem of menuArray">
+        <ion-label>
+          <ion-button (click)="irScreen(menuItem.url)" expand="full" fill='clear'>
+            <ion-icon slot="start" [name]='menuItem.icon'>
+            </ion-icon>
+            {{ menuItem.label }}
+          </ion-button>
+        </ion-label>
+      </ion-item>
+
+      <!-- Btn Salida -->
+      <ion-item>
+        <ion-label>
+          <ion-button expand="full" fill='clear' color="medium">
+            <ion-icon slot="start" name='log-out-outline'></ion-icon>
+            Cerrar sesion
+          </ion-button>
+        </ion-label>
+      </ion-item>
+
+    </ion-list>
+
+    <!-- Btn cerrar modal menu -->
+    <ion-menu-toggle >
+      <ion-button fill="clear" expand="full">
+        <ion-icon slot="icon-only" name="chevron-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-menu-toggle>
+
+  </ion-content>
+</ion-menu>

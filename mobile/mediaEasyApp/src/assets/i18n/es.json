@@ -2,6 +2,10 @@
 
   "IMAGEN.CORPORATIVA.TITULO":"EasyMedia",
 
+  "menuPrincipal.itemlabel.crearPost": "Crear post",
+  "menuPrincipal.itemlabel.misPost": "Mis posts",
+  "menuPrincipal.itemlabel.allPost": "Todos los posts",
+
   "page.crearCuenta.title.crearCuenta": "Crear cuenta",
   "page.crearCuenta.input.nombre": "Nombre",
   "page.crearCuenta.input.correo": "Correo",

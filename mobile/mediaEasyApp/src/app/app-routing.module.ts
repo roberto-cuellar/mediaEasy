@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ConstantesPath } from './constantes/paths';
+import { ValidarTokenGuard } from './guards/validar-token.guard';
 
 
 const routes: Routes = [
@@ -9,7 +10,14 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)
   },
   {
-    path: '',
+    path: ConstantesPath.PATH_LANDING,
+    loadChildren: () => import('./protected/protected.module').then( m => m.ProtectedModule),
+    canActivate: [ValidarTokenGuard],
+    canLoad: [ValidarTokenGuard],
+
+  },
+  {
+    path: '**',
     redirectTo: 'auth',
     pathMatch: 'full'
   },

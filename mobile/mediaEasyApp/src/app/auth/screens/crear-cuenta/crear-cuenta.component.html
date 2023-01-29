@@ -68,6 +68,7 @@
   </ion-note>
   <br>
 
+  <!-- Confirm password -->
   <ion-item>
     <ion-label position="floating">{{"page.crearCuenta.input.confirmarContrasena" | translate}}
       <ion-text color="danger"><span> * </span>
@@ -79,7 +80,7 @@
       ></ion-input>
   </ion-item>
   <ion-note
-    *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched"
+    *ngIf="registerForm.controls['confirmPassword'].hasError('required') && registerForm.controls['confirmPassword'].touched"
     slot="error"><ion-text color="danger">{{"COMMON.errors.msg.requerido" | translate}}</ion-text>
   </ion-note>
   <br>
