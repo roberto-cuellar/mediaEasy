@@ -10,6 +10,7 @@ import { VerAllPostComponent } from './screens/ver-all-post/ver-all-post.compone
 import { VerMisPostComponent } from './screens/ver-mis-post/ver-mis-post.component';
 import { SharedModule } from '../shared/shared.module';
 import { IonicModule } from '@ionic/angular';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { IonicModule } from '@ionic/angular';
     CommonModule,
     ProtectedRoutingModule,
     SharedModule,
-    IonicModule
+    IonicModule,
+    ReactiveFormsModule
   ]
 })
 export class ProtectedModule { }

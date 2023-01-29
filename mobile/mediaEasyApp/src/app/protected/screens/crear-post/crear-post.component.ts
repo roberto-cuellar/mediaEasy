@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CreatePostInterface } from 'src/utils/interfaces';
 
 @Component({
   selector: 'app-crear-post',
@@ -7,8 +10,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearPostComponent implements OnInit {
 
-  constructor() { }
+  public createPostForm: FormGroup = this.fb.group({
+    title: [null, Validators.required],
+    content: [null, Validators.required],
+  });
 
-  ngOnInit() {}
+  public createPostPreviewObject: CreatePostInterface= {
+    title: '',
+    content: '',
+    usuario: '',
+    fecha: ''
+  }
+
+  public genericTitle: string = 'page.crearPost.cardEjemplo.title.placeholder';
+  public genericContent: string = 'page.crearPost.cardEjemplo.contenido.placeholder';
+
+
+
+
+  constructor(
+    public translateService:TranslateService,
+    private fb: FormBuilder
+  ) { }
+
+  ngOnInit() {
+    this.actualizarPreview();
+  }
+
+  actualizarPreview() {
+    console.log('Entra');
+
+    // Se extraen los valores del formulario
+    const {title,content} = this.createPostForm.value;
+
+    // Se asignan al objeto de crear mensaje
+    this.createPostPreviewObject.title = title? title: this.translateService.instant(this.genericTitle);
+    this.createPostPreviewObject.content = content? content: this.translateService.instant(this.genericContent);
+  }
+
+  crearPost(){
+    if(this.createPostForm.invalid){
+      this.createPostForm.markAllAsTouched();
+      return
+    }
+  }
 
 }
