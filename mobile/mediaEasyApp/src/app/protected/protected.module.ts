@@ -11,7 +11,8 @@ import { VerMisPostComponent } from './screens/ver-mis-post/ver-mis-post.compone
 import { SharedModule } from '../shared/shared.module';
 import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { ModalesComponent } from './components/shared/modales/modales.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,14 +21,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     ToolbarComponent,
     CrearPostComponent,
     VerAllPostComponent,
-    VerMisPostComponent
+    VerMisPostComponent,
+    ModalesComponent
   ],
   imports: [
     CommonModule,
     ProtectedRoutingModule,
     SharedModule,
     IonicModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class ProtectedModule { }

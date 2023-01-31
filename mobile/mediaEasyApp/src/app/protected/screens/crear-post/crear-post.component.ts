@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CreatePostInterface } from 'src/utils/interfaces';
+import { ModalesComponent } from '../../components/shared/modales/modales.component';
+import { ModalController } from '@ionic/angular';
+import { TiposModalesEnum } from '../../components/shared/modales/tiposModalesEnum';
 
 @Component({
   selector: 'app-crear-post',
@@ -30,7 +33,8 @@ export class CrearPostComponent implements OnInit {
 
   constructor(
     public translateService:TranslateService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public modalController: ModalController
   ) { }
 
   ngOnInit() {
@@ -38,8 +42,6 @@ export class CrearPostComponent implements OnInit {
   }
 
   actualizarPreview() {
-    console.log('Entra');
-
     // Se extraen los valores del formulario
     const {title,content} = this.createPostForm.value;
 
@@ -48,11 +50,29 @@ export class CrearPostComponent implements OnInit {
     this.createPostPreviewObject.content = content? content: this.translateService.instant(this.genericContent);
   }
 
-  crearPost(){
+  async crearPost(){
     if(this.createPostForm.invalid){
       this.createPostForm.markAllAsTouched();
       return
     }
+
+    const modal = await this.modalController.create({
+      component: ModalesComponent,
+      componentProps: {
+        "tipoModal": TiposModalesEnum.error,
+        "contenido": "page.crearPost.modal.contenido.exitoso"
+      }
+    });
+    modal.present();
+
+    const { data } = await modal.onWillDismiss();
+    console.log('Data: ',data);
+
+
+    if(data){}
   }
+
+
+
 
 }

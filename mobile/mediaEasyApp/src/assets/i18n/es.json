@@ -28,10 +28,11 @@
   "page.crearPost.input.contenido": "Contenido",
   "page.crearPost.input.contenido.placeholder1": "Comparte tus ideas, Ten cuidado!, Solo tienes 400 caractéres.",
   "page.crearPost.input.contenido.placeholder2": "<strong>Ten cuidado!</strong>",
-  "page.crearPost.input.contenido.placeholder3": "Solo tienes 400 caractéres",
+  "page.crearPost.input.contenido.placeholder3": "Solo tienes 200 caractéres",
   "page.crearPost.btn.publicar": "Publicar",
   "page.crearPost.cardEjemplo.title.placeholder": "Un título muy intrigante que atrape y llame demasiado la atención!",
   "page.crearPost.cardEjemplo.contenido.placeholder": "En este espacio puedes describir cómo estár el día de hoy, alguna idea, momento o reflexión para compartir con tus amigos.",
+  "page.crearPost.modal.contenido.exitoso": "Se ha completado la operación de forma correcta.",
 
   "page.misPosts.title": "Mis posts",
   "page.misPosts.input.title": "Filtra por fecha",
@@ -40,6 +41,11 @@
   "page.allPosts.title": "Todos los posts",
   "page.allPosts.input.title": "Filtrar por palabras en el título",
   "page.allPosts.input.title.placeholder": "Escribe las palabras a filtrar",
+
+  "MODAL.exitoso.title":"Exitoso",
+  "MODAL.error.title":"Error",
+  "MODAL.confirmar.title":"Confirmar",
+  "MODAL.advertencia.title":"Advertencia",
 
   "COMMON.btn.crear":"Crear",
   "COMMON.errors.msg.requerido":"Este campo es requerido",
