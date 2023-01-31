@@ -59,15 +59,13 @@ export class CrearPostComponent implements OnInit {
     const modal = await this.modalController.create({
       component: ModalesComponent,
       componentProps: {
-        "tipoModal": TiposModalesEnum.error,
+        "tipoModal": TiposModalesEnum.confirmar,
         "contenido": "page.crearPost.modal.contenido.exitoso"
       }
     });
     modal.present();
 
     const { data } = await modal.onWillDismiss();
-    console.log('Data: ',data);
-
 
     if(data){}
   }

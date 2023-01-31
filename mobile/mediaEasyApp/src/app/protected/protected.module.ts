@@ -13,6 +13,9 @@ import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalesComponent } from './components/shared/modales/modales.component';
 import { FormsModule } from '@angular/forms';
+import { GeneralComponent } from './components/shared/popovers/calendarios/general/general.component';
+import { GeneralDateComponent } from './components/shared/calendarios/general-date/general-date.component';
+import { CardPostComponent } from './components/shared/cards/card-post/card-post.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { FormsModule } from '@angular/forms';
     CrearPostComponent,
     VerAllPostComponent,
     VerMisPostComponent,
-    ModalesComponent
+    ModalesComponent,
+    GeneralComponent,
+    GeneralDateComponent,
+    CardPostComponent
   ],
   imports: [
     CommonModule,

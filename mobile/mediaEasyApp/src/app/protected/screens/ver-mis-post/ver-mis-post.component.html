@@ -1,3 +1,10 @@
-<p>
-  ver-mis-post works!
-</p>
+<div class="ion-padding">
+
+  <!-- Title -->
+  <ion-text color="primary">
+    <h1 >{{'page.misPosts.title' | translate}}</h1>
+  </ion-text>
+
+  <app-general-date (click)="presentPopover($event)"></app-general-date>
+
+</div>

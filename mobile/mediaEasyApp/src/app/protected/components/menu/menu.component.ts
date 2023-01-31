@@ -3,6 +3,7 @@ import { MenuPrincipal } from 'src/utils/interfaces';
 import { TranslateService } from '@ngx-translate/core';
 import { ConstantesPath } from 'src/app/constantes/paths';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-menu',
@@ -15,7 +16,8 @@ export class MenuComponent implements OnInit {
 
   constructor(
     public translateService:TranslateService,
-    private router: Router
+    private router: Router,
+    private menuController:MenuController
   ) { }
 
   ngOnInit() {
@@ -49,6 +51,7 @@ export class MenuComponent implements OnInit {
 
   // Metodo encargado de enrutar a la screen correspondiente
   irScreen(url:string){
+    this.menuController.close();
     this.router.navigate([ConstantesPath.PATH_LANDING,url]);
   }
 
