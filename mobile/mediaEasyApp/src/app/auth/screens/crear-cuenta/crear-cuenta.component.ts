@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { ConstantesPath } from 'src/app/constantes/paths';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-crear-cuenta',
@@ -20,7 +21,8 @@ export class CrearCuentaComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) { }
 
   ngOnInit() {}
@@ -36,6 +38,11 @@ export class CrearCuentaComponent implements OnInit {
       this.registerForm.markAllAsTouched();
       return
     }
+
+    this.http.get<any>('https://reqres.in/api/users?delay=3').subscribe(response => {
+      console.log('Response: ',response);
+
+    })
 
 
   }

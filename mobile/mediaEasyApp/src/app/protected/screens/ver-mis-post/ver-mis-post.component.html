@@ -1,4 +1,4 @@
-<div class="ion-padding">
+<div class="ion-padding content">
 
   <!-- Title -->
   <ion-text color="primary">
@@ -6,5 +6,17 @@
   </ion-text>
 
   <app-general-date (click)="presentPopover($event)"></app-general-date>
+
+  <!-- Cards -->
+  <ion-content >
+        <app-card-post *ngFor="let post of myPostEntidad" [contenido]="post.content" [title]="post.title"></app-card-post>
+    <!-- Infinite scroll -->
+    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+      <ion-infinite-scroll-content
+        loadingText="Cargando..."
+        loadingSpinner="bubbles"
+      ></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>
 
 </div>

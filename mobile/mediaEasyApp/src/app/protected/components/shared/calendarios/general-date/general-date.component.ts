@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-general-date',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./general-date.component.scss'],
 })
 export class GeneralDateComponent implements OnInit {
+
+  @Input('controlName') controlName: string = ''
 
   constructor() { }
 

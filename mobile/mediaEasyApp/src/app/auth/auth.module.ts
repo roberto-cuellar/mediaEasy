@@ -8,6 +8,7 @@ import { IniciarSesionComponent } from './screens/iniciar-sesion/iniciar-sesion.
 import { LandingComponent } from './screens/landing/landing.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -22,7 +23,8 @@ import { SharedModule } from '../shared/shared.module';
     AuthRoutingModule,
     IonicModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ]
 })
 export class AuthModule {

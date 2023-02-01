@@ -1,3 +1,35 @@
-<p>
-  ver-all-post works!
-</p>
+<div class="ion-padding content">
+
+  <!-- Title -->
+  <ion-text color="primary">
+    <h1 >{{'page.allPosts.title' | translate}}</h1>
+  </ion-text>
+
+  <ion-item>
+  <ion-label
+    position="floating"
+    >{{"page.allPosts.input.title.placeholder" | translate}}
+  </ion-label>
+  <ion-input
+    type="text"
+    required="true"
+    maxlength="20"
+  >
+  </ion-input>
+  </ion-item>
+  <br>
+  <app-general-date (click)="presentPopover($event)"></app-general-date>
+
+  <!-- Cards -->
+  <ion-content >
+        <app-card-post *ngFor="let post of allPostEntidad" [contenido]="post.content" [title]="post.title"></app-card-post>
+    <!-- Infinite scroll -->
+    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+      <ion-infinite-scroll-content
+        loadingText="Cargando..."
+        loadingSpinner="bubbles"
+      ></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>
+
+</div>

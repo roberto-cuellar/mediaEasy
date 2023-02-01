@@ -5,6 +5,7 @@ import { CreatePostInterface } from 'src/utils/interfaces';
 import { ModalesComponent } from '../../components/shared/modales/modales.component';
 import { ModalController } from '@ionic/angular';
 import { TiposModalesEnum } from '../../components/shared/modales/tiposModalesEnum';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-crear-post',
@@ -34,7 +35,8 @@ export class CrearPostComponent implements OnInit {
   constructor(
     public translateService:TranslateService,
     private fb: FormBuilder,
-    public modalController: ModalController
+    public modalController: ModalController,
+    private http: HttpClient
   ) { }
 
   ngOnInit() {
@@ -50,16 +52,25 @@ export class CrearPostComponent implements OnInit {
     this.createPostPreviewObject.content = content? content: this.translateService.instant(this.genericContent);
   }
 
-  async crearPost(){
+   crearPost(){
     if(this.createPostForm.invalid){
       this.createPostForm.markAllAsTouched();
       return
     }
 
+    this.http.get<any>('https://reqres.in/api/users?delay=3').subscribe(response => {
+      console.log('Response: ',response);
+      this.mostraModal();
+    })
+
+
+  }
+
+  async mostraModal(){
     const modal = await this.modalController.create({
       component: ModalesComponent,
       componentProps: {
-        "tipoModal": TiposModalesEnum.confirmar,
+        "tipoModal": TiposModalesEnum.exitoso,
         "contenido": "page.crearPost.modal.contenido.exitoso"
       }
     });
@@ -68,8 +79,8 @@ export class CrearPostComponent implements OnInit {
     const { data } = await modal.onWillDismiss();
 
     if(data){}
-  }
 
+  }
 
 
 

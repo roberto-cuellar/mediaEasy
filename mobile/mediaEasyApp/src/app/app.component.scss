@@ -9,3 +9,11 @@ ion-row{
 }
 
 
+ion-spinner{
+  height: 100%;
+  z-index: 9999;
+  padding-left: auto;
+  padding-right: auto;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
