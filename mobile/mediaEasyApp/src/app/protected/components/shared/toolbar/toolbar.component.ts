@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PopoverController } from '@ionic/angular';
+import { MensajesPopoverComponent } from '../popovers/mensajes-popover/mensajes-popover.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,8 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public popoverController: PopoverController
+  ) { }
 
   ngOnInit() {}
+
+  // Metodo encargado de activar el popover de los mensajes
+  async verMensajes(e: Event){
+
+    const popover = await this.popoverController.create({
+      component: MensajesPopoverComponent,
+      event: e,
+      cssClass: 'popover-mensajes',
+      translucent: true
+    }
+    );
+
+    await popover.present();
+  }
+
+
 
 }

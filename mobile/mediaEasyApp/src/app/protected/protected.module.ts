@@ -16,6 +16,8 @@ import { FormsModule } from '@angular/forms';
 import { GeneralComponent } from './components/shared/popovers/calendarios/general/general.component';
 import { GeneralDateComponent } from './components/shared/calendarios/general-date/general-date.component';
 import { CardPostComponent } from './components/shared/cards/card-post/card-post.component';
+import { MensajesPopoverComponent } from './components/shared/popovers/mensajes-popover/mensajes-popover.component';
+import { MensajePopoverCardComponent } from './components/shared/mensaje-popover-card/mensaje-popover-card.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { CardPostComponent } from './components/shared/cards/card-post/card-post
     ModalesComponent,
     GeneralComponent,
     GeneralDateComponent,
-    CardPostComponent
+    CardPostComponent,
+    MensajesPopoverComponent,
+    MensajePopoverCardComponent
   ],
   imports: [
     CommonModule,

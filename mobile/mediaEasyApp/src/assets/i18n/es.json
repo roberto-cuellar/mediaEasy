@@ -26,7 +26,7 @@
   "page.crearPost.input.title": "Título",
   "page.crearPost.input.title.placeholder": "¿De qué quieres hablar?",
   "page.crearPost.input.contenido": "Contenido",
-  "page.crearPost.input.contenido.placeholder1": "Comparte tus ideas, Ten cuidado!, Solo tienes 400 caractéres.",
+  "page.crearPost.input.contenido.placeholder1": "Comparte tus ideas, Ten cuidado!, Solo tienes 200 caractéres.",
   "page.crearPost.input.contenido.placeholder2": "<strong>Ten cuidado!</strong>",
   "page.crearPost.input.contenido.placeholder3": "Solo tienes 200 caractéres",
   "page.crearPost.btn.publicar": "Publicar",
@@ -50,6 +50,7 @@
   "COMMON.btn.crear":"Crear",
   "COMMON.calendario.title":"Seleccionar fecha",
   "COMMON.label.cerrarSesion":"Cerrar sesión",
+  "popover.mensajes.label.verTodosMensajes":"Ver todos",
 
   "COMMON.errors.msg.requerido":"Este campo es requerido",
   "COMMON.errors.msg.pattern.alfabeticos":"Este campo solo acepta valores alfabéticos",

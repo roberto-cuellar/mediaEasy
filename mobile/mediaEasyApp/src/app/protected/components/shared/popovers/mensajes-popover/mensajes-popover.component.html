@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div class="scrolleable">
+    <ion-card>
+    <ion-content>
+      <app-mensaje-popover-card
+        *ngFor="let conversa of conversas"
+        [autor]="conversa.autor"
+        [mensaje]="conversa.lastMesagge"
+        [leido]="conversa.leido"
+      ></app-mensaje-popover-card>
+    </ion-content>
+    </ion-card>
+  </div>
+
+  <div class="no-scrolleable">
+    <ion-item button color="light">
+      <ion-label class="ion-text-center">{{'popover.mensajes.label.verTodosMensajes' | translate}}</ion-label>
+    </ion-item>
+  </div>
+
+</div>
+

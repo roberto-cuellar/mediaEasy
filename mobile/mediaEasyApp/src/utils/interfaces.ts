@@ -21,3 +21,11 @@ export interface DataModalTransversal{
   imageModal?: string;
   tipoModal: string;
 }
+
+
+export interface ConversaPrimerMensaje{
+  id: number;
+  autor: string;
+  lastMesagge: string;
+  leido: boolean;
+}

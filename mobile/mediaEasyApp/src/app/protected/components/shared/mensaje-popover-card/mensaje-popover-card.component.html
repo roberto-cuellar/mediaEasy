@@ -1,0 +1,17 @@
+<ion-card [ngClass]="!leido ? 'no-leido':''">
+  <ion-card-content>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="3">
+          <ion-avatar>
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="9">
+          <h2><strong>{{autor | titlecase}}</strong></h2>
+          <p>{{mensaje}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

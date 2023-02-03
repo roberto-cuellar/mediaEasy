@@ -26,3 +26,8 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 
+// Estilo provisional para los popovers
+ion-popover {
+  --width: 350px;
+  max-height: 450px;
+}
