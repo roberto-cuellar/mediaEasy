@@ -20,6 +20,9 @@ app.use( express.json() );
 // Autenticacion
 app.use( '/auth', require('./api/monolito/routes/auth') );
 
+// Posts
+app.use( '/posts', require('./api/monolito/routes/posts') );
+
 app.listen( process.env.PORT, () => {
     console.log(`Servidor corriendo en puerto ${ process.env.PORT }`);
 });
