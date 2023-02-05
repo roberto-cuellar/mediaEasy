@@ -12,6 +12,7 @@
       type="email"
       formControlName="email"
       required="true"
+      autocomplete="true"
       ></ion-input>
   </ion-item>
   <!-- Error requerido -->
@@ -42,7 +43,7 @@
   </ion-note>
   <br>
 
-  <ion-button expand="block" >{{"page.iniciarSesion.btn.ingresar" | translate}}</ion-button>
+  <ion-button expand="block" (click)="login()">{{"page.iniciarSesion.btn.ingresar" | translate}}</ion-button>
   <ion-text>
     <span>{{"page.iniciarSesion.label.aunNoTienesCuenta" | translate}} </span>
   </ion-text>

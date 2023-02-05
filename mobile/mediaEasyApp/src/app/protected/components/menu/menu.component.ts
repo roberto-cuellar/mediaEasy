@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ConstantesPath } from 'src/app/constantes/paths';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MenuController } from '@ionic/angular';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -14,15 +15,25 @@ export class MenuComponent implements OnInit {
 
   public menuArray: MenuPrincipal[] = [];
 
+  public userName: string = '';
+
   constructor(
     public translateService:TranslateService,
     private router: Router,
-    private menuController:MenuController
+    private menuController:MenuController,
+    private authService:AuthService
   ) { }
 
   ngOnInit() {
     // Construir el menú
     this.construirMenu();
+
+    // Obtener informacion del storage
+    if(!localStorage.getItem('username')){
+      this.cerrarSesion()
+    }
+
+    this.userName = localStorage.getItem('username') || '';
   }
 
   // Metodo encargado de construir el menu
@@ -47,6 +58,11 @@ export class MenuComponent implements OnInit {
       }
     ]
     this.menuArray = [...menuItems];
+  }
+
+  // Metodo encargado de eliminar el token del localstorage
+  public cerrarSesion(){
+    this.authService.logout();
   }
 
   // Metodo encargado de enrutar a la screen correspondiente

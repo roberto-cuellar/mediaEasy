@@ -1,7 +1,7 @@
 <ion-menu #mainMenu id="mainMenu" contentId="main-content" side="end">
   <ion-header>
     <ion-toolbar>
-      <ion-title slot="">Menú</ion-title>
+      <ion-title slot="">{{userName |titlecase}}</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
@@ -22,7 +22,7 @@
       <!-- Btn Salida -->
       <ion-item>
         <ion-label>
-          <ion-button expand="full" fill='clear' color="medium">
+          <ion-button expand="full" fill='clear' color="medium" (click)="cerrarSesion()">
             <ion-icon slot="start" name='log-out-outline'></ion-icon>
             {{'COMMON.label.cerrarSesion'|translate}}
           </ion-button>

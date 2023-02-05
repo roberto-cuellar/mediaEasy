@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { ConstantesPath } from 'src/app/constantes/paths';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-crear-cuenta',
@@ -13,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
 export class CrearCuentaComponent implements OnInit {
 
   public registerForm: FormGroup = this.fb.group({
-    nombre: [null, [Validators.required,  Validators.pattern('^[a-zA-Z ]*')]],
+    name: [null, [Validators.required,  Validators.pattern('^[a-zA-Z ]*')]],
     email: [null, [Validators.required,Validators.email]],
     password: [null, Validators.required],
     confirmPassword: [null, Validators.required],
@@ -22,7 +23,8 @@ export class CrearCuentaComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {}
@@ -39,9 +41,16 @@ export class CrearCuentaComponent implements OnInit {
       return
     }
 
-    this.http.get<any>('https://reqres.in/api/users?delay=3').subscribe(response => {
-      console.log('Response: ',response);
+    // Se obtienen los valores para realizar el login
+    const {email,password,name} = this.registerForm.value;
 
+    this.authService.registro( name, email, password ).subscribe(error =>{
+      if(!error){
+        this.router.navigateByUrl('/landing');
+      }else{
+        console.error('No se pudo realizar el registro');
+
+      }
     })
 
 

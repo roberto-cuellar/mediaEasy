@@ -29,3 +29,17 @@ export interface ConversaPrimerMensaje{
   lastMesagge: string;
   leido: boolean;
 }
+
+
+export interface AuthResponse {
+  error: boolean;
+  status: string;
+  body: BodyResponse;
+}
+
+interface BodyResponse {
+  username?: string;
+  userid?: string;
+  token: string;
+}
+

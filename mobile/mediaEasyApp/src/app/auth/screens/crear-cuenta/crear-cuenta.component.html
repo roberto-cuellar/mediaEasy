@@ -12,19 +12,19 @@
     </ion-label>
     <ion-input
       type="text"
-      formControlName="nombre"
+      formControlName="name"
       required="true"
         >
     </ion-input>
   </ion-item>
   <!-- Error requerido -->
   <ion-note
-    *ngIf="registerForm.controls['nombre'].hasError('required') && registerForm.controls['nombre'].touched"
+    *ngIf="registerForm.controls['name'].hasError('required') && registerForm.controls['name'].touched"
     slot="error"><ion-text color="danger">{{"COMMON.errors.msg.requerido" | translate}}</ion-text>
   </ion-note>
   <!-- Error alfabetico -->
   <ion-note
-    *ngIf="registerForm.controls['nombre'].hasError('pattern') && registerForm.controls['nombre'].touched"
+    *ngIf="registerForm.controls['name'].hasError('pattern') && registerForm.controls['name'].touched"
     slot="error"><ion-text color="danger">{{"COMMON.errors.msg.pattern.alfabeticos" | translate}}</ion-text>
   </ion-note>
   <br>
