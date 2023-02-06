@@ -52,8 +52,8 @@
   "COMMON.label.cerrarSesion":"Cerrar sesión",
   "popover.mensajes.label.verTodosMensajes":"Ver todos",
 
-  "COMMON.errors.msg.usuarioUsado":"Este usuario ya se encuentra registrado cabeza de gar$%#%",
-  "COMMON.errors.msg.coincidenciaPassword":"Las contraseñas no coinciden pirobo",
+  "COMMON.errors.msg.usuarioUsado":"Este usuario ya se encuentra registrado",
+  "COMMON.errors.msg.coincidenciaPassword":"Las contraseñas no coinciden",
 
   "COMMON.errors.msg.requerido":"Este campo es requerido",
   "COMMON.errors.msg.pattern.alfabeticos":"Este campo solo acepta valores alfabéticos",
