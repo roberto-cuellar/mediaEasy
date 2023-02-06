@@ -1,5 +1,5 @@
 const responseStructure = require('../../../network/response');
-const { createPost, consultarUno, consultarTodos} = require('../storage/mongo/actions/postActions');
+const { createPost, consultarPosts} = require('../storage/mongo/actions/postActions');
 
 
 // Metodo encargado de realizar la creacion del registro de un post
@@ -26,25 +26,25 @@ const crearNuevoPost = async(req, res = response) => {
 const verPosts = async(req, res = response) => { 
     
     // Se extraen los datos del cuerpo de la peticion
-    const { userId } = req.query;  
+    const { userId, page, len } = req.query;  
     
     
     try {
         
         let posts = [];
-
-        if(userId){
-            posts = await consultarUno(userId);
-        }else{
-            posts = await consultarTodos();
-        }
+        posts = await consultarPosts(userId, page, len);
+        // if(userId){
+        //     posts = await consultarPosts(userId, page, len);
+        // }else{
+        //     posts = await consultarPosts(userId, page, len);
+        // }
     
         // Respuesta del servicio
          return responseStructure.success(req,res,posts, 201);
         
     } catch (error) {
         console.log(error);
-        return responseStructure.error(req,res,error + 'No se pudo completar la accion, por favor intente mas tarde.', 500);                      
+        return responseStructure.error(req,res,error + ', No se pudo completar la accion, por favor intente mas tarde.', 500);                      
          
     }
 };
