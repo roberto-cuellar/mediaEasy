@@ -1,25 +1,28 @@
 const { Router } = require('express');
-const { check } = require('express-validator');
+const { check, query, param } = require('express-validator');
 const { crearNuevoPost,verPosts } = require('../controllers/posts');
 // const { validarCampos } = require('../middlewares/validar-campos');
 const { validarJWT } = require('../middlewares/validar-jwt');
+const { validarCampos } = require('../middlewares/validar-campos');
 
 const router = Router();
 
-// Crear un nuevo usuario
+// Crear un nuevo post
 router.post( '/add', [
-    // check('name', 'El nombre es obligatorio').not().isEmpty(),
-    // check('email', 'El email es obligatorio').isEmail().not().isEmpty(),
-    // check('password', 'La contraseña es obligatoria').not().isEmpty(),
-    validarJWT
+    validarJWT,
+    check('title', 'El titutlo es obligatorio').not().isEmpty(),
+    check('content', 'El contenido es obligatorio').not().isEmpty(),
+    check('username', 'El username es obligatorio').not().isEmpty(),
+    check('userId', 'El userid es requerido').not().isEmpty(),
+    validarCampos
 ], crearNuevoPost );
 
 // Ver posts
 router.get( '/view', [
-    // check('name', 'El nombre es obligatorio').not().isEmpty(),
-    // check('email', 'El email es obligatorio').isEmail().not().isEmpty(),
-    // check('password', 'La contraseña es obligatoria').not().isEmpty(),
-    validarJWT
+    validarJWT,
+    query('page',"El parametro page es requerido y debe ser de tipo entero").not().isEmpty().isInt(),
+    query('len',"El parametro len es requerido y debe ser de tipo entero").not().isEmpty().isInt(),
+    validarCampos
 ], verPosts );
 
 

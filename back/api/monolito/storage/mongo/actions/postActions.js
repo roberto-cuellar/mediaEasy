@@ -10,18 +10,43 @@ exports.createPost = async function ({ title, content, username, userId }) {
     return post
 }
 
-// Metodo encargado de realizar la consulta de posts por el id del usuario
-exports.consultarUno = async function (userId) {
-    const posts = await Usuario.find({
-        _id: userId
-    })
-    return posts
+// // Metodo encargado de realizar la consulta de posts por el id del usuario 
+// exports.consultarUno = async function (userId, page, len) {
+//     const skipNumber = Number((page-1)*(len));
+//     const limitNumber = Number(len);
+    
+//     const postsTotalCount = await Post.find({}).countDocuments();
+
+//     const posts = await Post.find({
+//         userId: userId
+//     }).skip(skipNumber).limit(limitNumber);
+//     return {posts, postsTotalCount}
+// }
+
+// // Metodo encargado de realizar la consulta de posts por el id del usuario
+// exports.consultarTodos = async function (userId, page, len) {
+
+//     const skipNumber = Number((page-1)*(len));
+//     const limitNumber = Number(len);
+    
+//     const postsTotalCount = await Post.find({}).countDocuments();
+    
+//     const posts = await Post.find({}).skip(skipNumber).limit(limitNumber);
+//     return {posts, postsTotalCount}
+// }
+
+exports.consultarPosts = async function (userId, page, len) {
+    let posts = [];
+    const skipNumber = Number((page-1)*(len));
+    const limitNumber = Number(len);
+    const query = userId ? {userId: userId} : null;
+    posts = await Post.find(query).skip(skipNumber).limit(limitNumber);
+        
+    const postsTotalCount = await Post.find(query).countDocuments();
+
+        
+    return {posts, postsTotalCount}
 }
 
-// Metodo encargado de realizar la consulta de posts por el id del usuario
-exports.consultarTodos = async function (userId) {
-    const posts = await Post.find({});
-    return posts
-}
 
 
