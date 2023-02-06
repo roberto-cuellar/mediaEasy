@@ -27,12 +27,16 @@ export class AuthService {
     return this.http.post<AuthResponse>( url, body )
       .pipe(
         tap( ({ error, body }) => {
-          if ( error ) {
+          if ( !error ) {
             localStorage.setItem('token', body.token );
+            localStorage.setItem('username', body.username || '');
+            localStorage.setItem('userid', body.userid || '');
           }
         }),
-        map( (resp: any) => resp.ok ),
-        catchError( err => of(err.error.msg) )
+        map( (resp: any) => resp.error ),
+        catchError( (err:any) => {
+          return of(err.error)
+        })
       );
 
   }
@@ -47,6 +51,8 @@ export class AuthService {
         tap( resp => {
           if ( !resp.error ) {
             localStorage.setItem('token', resp.body.token! );
+            localStorage.setItem('username', resp.body.username || '');
+            localStorage.setItem('userid', resp.body.userid || '');
           }
         }),
         map( resp => resp.error ),

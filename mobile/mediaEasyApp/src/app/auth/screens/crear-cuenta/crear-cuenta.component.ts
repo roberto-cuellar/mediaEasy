@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { ConstantesPath } from 'src/app/constantes/paths';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../services/auth.service';
+import { ToastController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-crear-cuenta',
@@ -24,7 +26,9 @@ export class CrearCuentaComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private http: HttpClient,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastController: ToastController,
+    private translateService:TranslateService
   ) { }
 
   ngOnInit() {}
@@ -41,20 +45,53 @@ export class CrearCuentaComponent implements OnInit {
       return
     }
 
-    // Se obtienen los valores para realizar el login
-    const {email,password,name} = this.registerForm.value;
 
-    this.authService.registro( name, email, password ).subscribe(error =>{
-      if(!error){
+
+    // Se obtienen los valores para realizar el login
+    const {email,password,name ,confirmPassword } = this.registerForm.value;
+
+    // Se valida si el password y la confirmacion son iguales
+    if(password !== confirmPassword){
+      this.toastPasswordNoConfirmadoShow()
+      return
+    }
+
+    this.authService.registro( name, email, password ).subscribe(response =>{
+      if(!response.error){
         this.router.navigateByUrl('/landing');
       }else{
-        console.error('No se pudo realizar el registro');
-
+        // console.error('No se pudo realizar el registro');
+        this.toastEmailUsadoShow();
       }
     })
 
 
   }
+
+  async toastEmailUsadoShow(){
+    const toast = await this.toastController.create({
+      message: this.translateService.instant('COMMON.errors.msg.usuarioUsado'),
+      duration: 1500,
+      position: 'middle',
+      cssClass: 'custom-toast',
+    });
+
+    await toast.present();
+
+  }
+
+  async toastPasswordNoConfirmadoShow(){
+    const toast = await this.toastController.create({
+      message: this.translateService.instant('COMMON.errors.msg.coincidenciaPassword'),
+      duration: 1500,
+      position: 'middle',
+      cssClass: 'custom-toast',
+    });
+
+    await toast.present();
+
+  }
+
 
 
 

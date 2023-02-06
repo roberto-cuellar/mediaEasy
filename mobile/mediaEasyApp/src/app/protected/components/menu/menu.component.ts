@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { MenuPrincipal } from 'src/utils/interfaces';
 import { TranslateService } from '@ngx-translate/core';
 import { ConstantesPath } from 'src/app/constantes/paths';
@@ -11,7 +11,7 @@ import { AuthService } from '../../../auth/services/auth.service';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, AfterViewInit {
 
   public menuArray: MenuPrincipal[] = [];
 
@@ -27,13 +27,20 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     // Construir el menú
     this.construirMenu();
+  }
 
-    // Obtener informacion del storage
-    if(!localStorage.getItem('username')){
-      this.cerrarSesion()
-    }
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
 
-    this.userName = localStorage.getItem('username') || '';
+        //Obtener informacion del storage
+        if(!localStorage.getItem('username')){
+          this.cerrarSesion()
+        }else{
+          this.userName = localStorage.getItem('username') || '';
+        }
+
+    //Add 'implements AfterViewInit' to the class.
+
   }
 
   // Metodo encargado de construir el menu

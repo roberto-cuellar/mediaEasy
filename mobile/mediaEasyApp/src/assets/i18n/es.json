@@ -52,6 +52,9 @@
   "COMMON.label.cerrarSesion":"Cerrar sesión",
   "popover.mensajes.label.verTodosMensajes":"Ver todos",
 
+  "COMMON.errors.msg.usuarioUsado":"Este usuario ya se encuentra registrado",
+  "COMMON.errors.msg.coincidenciaPassword":"Las contraseñas no coinciden",
+
   "COMMON.errors.msg.requerido":"Este campo es requerido",
   "COMMON.errors.msg.pattern.alfabeticos":"Este campo solo acepta valores alfabéticos",
   "COMMON.errors.msg.pattern.alfanumericos":"Este campo solo acepta valores alfanuméricos",

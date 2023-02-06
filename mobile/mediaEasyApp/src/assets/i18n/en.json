@@ -1,8 +1,63 @@
 {
-  "HOME": {
-      "TITLE": "i18n (Internazionalization) example to Angular Project",
-      "ENGLISH": "English",
-      "SPANISH": "Spanish"
-  },
-  "PRUEBA":"HI HI HI"
+
+  "IMAGEN.CORPORATIVA.TITULO":"EasyMedia",
+
+  "menuPrincipal.itemlabel.crearPost": "Crear post",
+  "menuPrincipal.itemlabel.misPost": "Mis posts",
+  "menuPrincipal.itemlabel.allPost": "Todos los posts",
+
+  "page.crearCuenta.title.crearCuenta": "Crear cuenta",
+  "page.crearCuenta.input.nombre": "Nombre",
+  "page.crearCuenta.input.correo": "Correo",
+  "page.crearCuenta.input.contraseña": "Contraseña",
+  "page.crearCuenta.input.confirmarContrasena": "Confirmar contraseña",
+  "page.crearCuenta.label.yaTienesCuenta": "¿Ya tienes una cuenta?",
+  "page.crearCuenta.btn.iniciarSesion": "Iniciar sesión",
+
+  "page.iniciarSesion.title.inicioSesion": "Inicio de sesión",
+  "page.iniciarSesion.input.correo": "Correo",
+  "page.iniciarSesion.input.contraseña": "Contraseña",
+  "page.iniciarSesion.label.aunNoTienesCuenta": "¿Aún no tienes una cuenta?",
+  "page.iniciarSesion.btn.ingresar": "Ingresar",
+  "page.iniciarSesion.btn.iniciarSesion": "Iniciar sesión",
+  "page.iniciarSesion.btn.crearCuenta": "Crear cuenta",
+
+  "page.crearPost.title": "Crear post",
+  "page.crearPost.input.title": "Título",
+  "page.crearPost.input.title.placeholder": "¿De qué quieres hablar?",
+  "page.crearPost.input.contenido": "Contenido",
+  "page.crearPost.input.contenido.placeholder1": "Comparte tus ideas, Ten cuidado!, Solo tienes 200 caractéres.",
+  "page.crearPost.input.contenido.placeholder2": "<strong>Ten cuidado!</strong>",
+  "page.crearPost.input.contenido.placeholder3": "Solo tienes 200 caractéres",
+  "page.crearPost.btn.publicar": "Publicar",
+  "page.crearPost.cardEjemplo.title.placeholder": "Un título muy intrigante que atrape y llame demasiado la atención!",
+  "page.crearPost.cardEjemplo.contenido.placeholder": "En este espacio puedes describir cómo estár el día de hoy, alguna idea, momento o reflexión para compartir con tus amigos.",
+  "page.crearPost.modal.contenido.exitoso": "Se ha creado el post de forma correcta.",
+
+  "page.misPosts.title": "Mis posts",
+  "page.misPosts.input.title": "Filtra por fecha",
+  "page.misPosts.input.fecha": "Selecciona una fecha",
+
+  "page.allPosts.title": "Todos los posts",
+  "page.allPosts.input.title": "Filtrar por palabras en el título",
+  "page.allPosts.input.title.placeholder": "Escribe las palabras a filtrar",
+
+  "MODAL.exitoso.title":"Exitoso",
+  "MODAL.error.title":"Error",
+  "MODAL.confirmar.title":"Confirmar",
+  "MODAL.advertencia.title":"Advertencia",
+
+  "COMMON.btn.crear":"Crear",
+  "COMMON.calendario.title":"Seleccionar fecha",
+  "COMMON.label.cerrarSesion":"Cerrar sesión",
+  "popover.mensajes.label.verTodosMensajes":"Ver todos",
+
+  "COMMON.errors.msg.usuarioUsado":"Este usuario ya se encuentra registrado cabeza de gar$%#%",
+  "COMMON.errors.msg.coincidenciaPassword":"Las contraseñas no coinciden pirobo",
+
+  "COMMON.errors.msg.requerido":"Este campo es requerido",
+  "COMMON.errors.msg.pattern.alfabeticos":"Este campo solo acepta valores alfabéticos",
+  "COMMON.errors.msg.pattern.alfanumericos":"Este campo solo acepta valores alfanuméricos",
+  "COMMON.errors.msg.pattern.numericos":"Este campo solo acepta valores numéricos",
+  "COMMON.errors.msg.pattern.correo":"Ingrese un correo valido"
 }

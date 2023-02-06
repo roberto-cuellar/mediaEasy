@@ -31,3 +31,13 @@ ion-popover {
   --width: 350px;
   max-height: 450px;
 }
+
+ion-toast.custom-toast {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: auto;
+  --background: #f30505;
+  --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+  --color: #ffffff;
+}
+
