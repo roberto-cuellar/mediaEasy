@@ -18,8 +18,8 @@ const UsuarioSchema = Schema({
     creationDate:{
         type: { type: Date, default: Date.now }
     },
-    chats: [],
-    posts: [],
+    // chats: [Schema.Types.ObjectId],
+    // posts: [Schema.Types.ObjectId],
 });
 
 module.exports = model('Usuario', UsuarioSchema );

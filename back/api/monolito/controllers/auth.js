@@ -15,7 +15,7 @@ const crearUsuario = async(req, res = response) => {
         // Se realiza la verificacion del email
         const usuario = await searchUserByEmail(email);
         // En caso de existir
-        if(usuario){
+        if(usuario){            
             return responseStructure.error(req,res,'Ya hay un usuario registrado en el sistema con este email', 400);            
         }else{
 
