@@ -26,18 +26,13 @@ const crearNuevoPost = async(req, res = response) => {
 const verPosts = async(req, res = response) => { 
     
     // Se extraen los datos del cuerpo de la peticion
-    const { userId, page, len } = req.query;  
+    const { userId, page, len, date, title } = req.query;  
     
     
     try {
         
         let posts = [];
-        posts = await consultarPosts(userId, page, len);
-        // if(userId){
-        //     posts = await consultarPosts(userId, page, len);
-        // }else{
-        //     posts = await consultarPosts(userId, page, len);
-        // }
+        posts = await consultarPosts(userId, page, len,date, title);
     
         // Respuesta del servicio
          return responseStructure.success(req,res,posts, 201);

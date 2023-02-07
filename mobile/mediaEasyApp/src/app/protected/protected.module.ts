@@ -18,6 +18,8 @@ import { GeneralDateComponent } from './components/shared/calendarios/general-da
 import { CardPostComponent } from './components/shared/cards/card-post/card-post.component';
 import { MensajesPopoverComponent } from './components/shared/popovers/mensajes-popover/mensajes-popover.component';
 import { MensajePopoverCardComponent } from './components/shared/mensaje-popover-card/mensaje-popover-card.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { TokenInterceptorService } from './interceptors/token/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,15 @@ import { MensajePopoverCardComponent } from './components/shared/mensaje-popover
     SharedModule,
     IonicModule,
     ReactiveFormsModule,
-    FormsModule
-  ]
+    FormsModule,
+    HttpClientModule
+  ],
+  // providers: [
+  //   {
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: TokenInterceptorService,
+  //     multi:true
+  //   }
+  // ]
 })
 export class ProtectedModule { }

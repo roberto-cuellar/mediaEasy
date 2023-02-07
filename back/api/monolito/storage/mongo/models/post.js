@@ -18,8 +18,7 @@ const PostSchema = Schema({
         type: Schema.Types.ObjectId,
         required: true
     },
-    creationDate:{
-        date: { type: Date, default: Date.now }
+    creationDate:{ type: String, default: new Date().toLocaleDateString() 
     },
     likes: [Schema.Types.ObjectId],
     comments: [Schema.Types.ObjectId],

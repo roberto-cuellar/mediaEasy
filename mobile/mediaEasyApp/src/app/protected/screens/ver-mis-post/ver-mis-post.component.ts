@@ -3,6 +3,8 @@ import { InfiniteScrollCustomEvent, PopoverController } from '@ionic/angular';
 import { GeneralComponent } from '../../components/shared/popovers/calendarios/general/general.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CreatePostInterface } from 'src/utils/interfaces';
+import { PostsService } from '../../services/posts.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-ver-mis-post',
@@ -17,68 +19,98 @@ export class VerMisPostComponent implements OnInit {
   });
 
   public myPostEntidad : Array<CreatePostInterface> = [
-    {
-      title: 'Do you want to make a living by giving your sports predictions',
-      content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a ga.',
-      usuario: 'roberto cuellar',
-      fecha: '10:25 am 20/11/22'
-    },
-    {
-      title: 'What is e-sports',
-      content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a g.',
-      usuario: 'roberto cuellar',
-      fecha: '10:25 am 21/11/22'
-    },
-    {
-      title: 'What is e-sports',
-      content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a g.',
-      usuario: 'roberto cuellar',
-      fecha: '10:25 am 21/11/22'
-    },
-    {
-      title: 'What is e-sports',
-      content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a g.',
-      usuario: 'roberto cuellar',
-      fecha: '10:25 am 21/11/22'
-    },
-    {
-      title: 'What is e-sports',
-      content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a g.',
-      usuario: 'roberto cuellar',
-      fecha: '10:25 am 21/11/22'
-    },
-    {
-      title: 'What is e-sports',
-      content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a g.',
-      usuario: 'roberto cuellar',
-      fecha: '10:25 am 21/11/22'
-    },
-    {
-      title: 'What is e-sports',
-      content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a g.',
-      usuario: 'roberto cuellar',
-      fecha: '10:25 am 21/11/22'
-    },
-    {
-      title: 'What is e-sports',
-      content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a g.',
-      usuario: 'roberto cuellar',
-      fecha: '10:25 am 21/11/22'
-    },
+    // {
+    //   title: 'Do you want to make a living by giving your sports predictions',
+    //   content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a ga.',
+    //   usuario: 'roberto cuellar',
+    //   fecha: '10:25 am 20/11/22'
+    // },
+    // {
+    //   title: 'What is e-sports',
+    //   content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a g.',
+    //   usuario: 'roberto cuellar',
+    //   fecha: '10:25 am 21/11/22'
+    // },
+    // {
+    //   title: 'What is e-sports',
+    //   content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a g.',
+    //   usuario: 'roberto cuellar',
+    //   fecha: '10:25 am 21/11/22'
+    // },
+    // {
+    //   title: 'What is e-sports',
+    //   content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a g.',
+    //   usuario: 'roberto cuellar',
+    //   fecha: '10:25 am 21/11/22'
+    // },
+    // {
+    //   title: 'What is e-sports',
+    //   content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a g.',
+    //   usuario: 'roberto cuellar',
+    //   fecha: '10:25 am 21/11/22'
+    // },
+    // {
+    //   title: 'What is e-sports',
+    //   content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a g.',
+    //   usuario: 'roberto cuellar',
+    //   fecha: '10:25 am 21/11/22'
+    // },
+    // {
+    //   title: 'What is e-sports',
+    //   content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a g.',
+    //   usuario: 'roberto cuellar',
+    //   fecha: '10:25 am 21/11/22'
+    // },
+    // {
+    //   title: 'What is e-sports',
+    //   content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a g.',
+    //   usuario: 'roberto cuellar',
+    //   fecha: '10:25 am 21/11/22'
+    // },
   ];
 
   constructor(
     private fb: FormBuilder,
-    public popoverController: PopoverController
+    public popoverController: PopoverController,
+    private postsService:PostsService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.postsService.verPosts(
+      localStorage.getItem('userid') || '',1,3
+    ).pipe(
+      map(
+        data => {
+          return data.body
+        }
+      )
+    ).subscribe(
+      response => {
+        const posts: Array<any> = response.posts;
+        const total = response.postsTotalCount;
+        posts.forEach(post => {
+          this.myPostEntidad.push({
+            title: post.title,
+            content: post.content,
+            usuario: post.username,
+            fecha: post.creationDate
+          })
+        })
+
+      }
+    )
+    // subscribe(response => {
+    //   const posts: Array<any> = response.body.posts;
+    //   console.log('Posts: ', posts);
+
+    // })
+  }
 
   async presentPopover(e: Event) {
     const popover = await this.popoverController.create({
       component: GeneralComponent,
       event: e,
-      backdropDismiss: false
+      backdropDismiss: true
     }
     );
 

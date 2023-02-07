@@ -9,7 +9,7 @@ export interface CreatePostInterface {
   title: string;
   content: string;
   usuario: string;
-  fecha?: string;
+  fecha: string;
 }
 
 
@@ -35,6 +35,12 @@ export interface AuthResponse {
   error: boolean;
   status: string;
   body: BodyResponse;
+}
+
+export interface CommonResponse {
+  error: boolean;
+  status: string;
+  body: any;
 }
 
 interface BodyResponse {

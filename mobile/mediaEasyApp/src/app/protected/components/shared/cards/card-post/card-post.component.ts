@@ -9,6 +9,8 @@ export class CardPostComponent implements OnInit {
 
   @Input('title') title: string = '' ;
   @Input('contenido') contenido: string = '';
+  @Input('fecha') fecha: string = '';
+  @Input('usuario') usuario: string = '';
 
   constructor() { }
 

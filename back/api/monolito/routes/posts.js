@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { check, query, param } = require('express-validator');
+const { check, query} = require('express-validator');
 const { crearNuevoPost,verPosts } = require('../controllers/posts');
 // const { validarCampos } = require('../middlewares/validar-campos');
 const { validarJWT } = require('../middlewares/validar-jwt');

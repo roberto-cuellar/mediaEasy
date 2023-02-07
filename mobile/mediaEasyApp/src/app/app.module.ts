@@ -9,6 +9,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SpinnerInterceptorService } from './interceptors/spinners/spinner-interceptor.service';
+import { TokenInterceptorService } from './protected/interceptors/token/token-interceptor.service';
 
 export function createTranslateLoader(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/','.json' );
@@ -37,6 +38,11 @@ export function createTranslateLoader(http: HttpClient){
     {
       provide: HTTP_INTERCEPTORS,
       useClass: SpinnerInterceptorService,
+      multi:true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
       multi:true
     }
   ],

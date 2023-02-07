@@ -6,6 +6,8 @@ import { ModalesComponent } from '../../components/shared/modales/modales.compon
 import { ModalController } from '@ionic/angular';
 import { TiposModalesEnum } from '../../components/shared/modales/tiposModalesEnum';
 import { HttpClient } from '@angular/common/http';
+import { PostsService } from '../../services/posts.service';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-crear-post',
@@ -36,6 +38,8 @@ export class CrearPostComponent implements OnInit {
     public translateService:TranslateService,
     private fb: FormBuilder,
     public modalController: ModalController,
+    private postsService:PostsService,
+    private authService:AuthService,
     private http: HttpClient
   ) { }
 
@@ -57,12 +61,22 @@ export class CrearPostComponent implements OnInit {
       this.createPostForm.markAllAsTouched();
       return
     }
+    const {title,content} = this.createPostForm.value;
 
-    this.http.get<any>('https://reqres.in/api/users?delay=3').subscribe(response => {
-      console.log('Response: ',response);
-      this.mostraModal();
-    })
+    const username = localStorage.getItem('username');
+    const userId = localStorage.getItem('userid');
 
+    if(username && userId) {
+      this.postsService.crearPost(title,content, username, userId).subscribe(response => {
+        if(!response.error){
+          this.mostraModal();
+        }else{
+
+        }
+      })
+    }else{
+      this.authService.logout();
+    }
 
   }
 

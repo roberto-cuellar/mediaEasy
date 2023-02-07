@@ -3,6 +3,7 @@ import { PopoverController, InfiniteScrollCustomEvent } from '@ionic/angular';
 import { CreatePostInterface } from 'src/utils/interfaces';
 import { GeneralComponent } from '../../components/shared/popovers/calendarios/general/general.component';
 import { TranslateService } from '@ngx-translate/core';
+import { PostsService } from '../../services/posts.service';
 
 @Component({
   selector: 'app-ver-all-post',
@@ -64,10 +65,17 @@ export class VerAllPostComponent implements OnInit {
 
   constructor(
     public popoverController: PopoverController,
-    public translateService:TranslateService
+    public translateService:TranslateService,
+    private postsService:PostsService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.postsService.verPosts(
+      '',1,3
+    ).subscribe(response => {
+      console.log('Response : ', response);
+    })
+  }
 
 
   async presentPopover(e: Event) {
