@@ -5,12 +5,21 @@
     <h1 >{{'page.misPosts.title' | translate}}</h1>
   </ion-text>
 
-  <app-general-date (click)="presentPopover($event)"></app-general-date>
+  <app-general-date [title]="dateTitle" (click)="presentPopover($event)"></app-general-date>
 
-  <!-- Cards -->
   <ion-content >
-        <app-card-post *ngFor="let post of myPostEntidad" [usuario]="post.usuario" [fecha]="post.fecha" [contenido]="post.content" [title]="post.title"></app-card-post>
 
+    <!-- Cards -->
+    <app-card-post *ngFor="let post of myPostEntidad" [usuario]="post.usuario" [fecha]="post.fecha" [contenido]="post.content" [title]="post.title"></app-card-post>
+
+    <!-- Paginador -->
+    <app-version-paginator-one
+      [hidden]="!!cantidadPost"
+      [elementosPagina]="elementosPorPagina"
+      [totalRegitros]="cantidadPost"
+      (cambioPagina)="cambioPagina($event)"
+    ></app-version-paginator-one>
+    <!--  -->
   </ion-content>
 
 </div>

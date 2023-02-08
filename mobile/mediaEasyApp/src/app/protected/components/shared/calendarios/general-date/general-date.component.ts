@@ -7,6 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class GeneralDateComponent implements OnInit {
 
+  @Input('title') title: string = ''
+
   @Input('controlName') controlName: string = ''
 
   constructor() { }

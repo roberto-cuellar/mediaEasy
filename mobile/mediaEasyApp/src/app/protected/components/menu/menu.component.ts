@@ -69,6 +69,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
 
   // Metodo encargado de eliminar el token del localstorage
   public cerrarSesion(){
+    this.menuController.close();
     this.authService.logout();
   }
 

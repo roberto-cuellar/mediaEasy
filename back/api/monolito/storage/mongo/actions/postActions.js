@@ -28,7 +28,6 @@ exports.consultarPosts = async function (userId, page, len,date,title) {
     }
 
     if(date){
-      console.log('Hay fecha: ', date);
         query.creationDate = {
             $regex: new RegExp(date,'i')
         }

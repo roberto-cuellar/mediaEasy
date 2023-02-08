@@ -71,7 +71,9 @@ export class CrearPostComponent implements OnInit {
         if(!response.error){
           this.mostraModal();
         }else{
+          console.log('Error levantado');
 
+          this.mostraModalError();
         }
       })
     }else{
@@ -86,6 +88,23 @@ export class CrearPostComponent implements OnInit {
       componentProps: {
         "tipoModal": TiposModalesEnum.exitoso,
         "contenido": "page.crearPost.modal.contenido.exitoso"
+      }
+    });
+    modal.present();
+
+    const { data } = await modal.onWillDismiss();
+
+    if(data){}
+
+  }
+
+
+  async mostraModalError(){
+    const modal = await this.modalController.create({
+      component: ModalesComponent,
+      componentProps: {
+        "tipoModal": TiposModalesEnum.error,
+        "contenido": "page.crearPost.modal.contenido.error"
       }
     });
     modal.present();

@@ -33,6 +33,7 @@
   "page.crearPost.cardEjemplo.title.placeholder": "Un título muy intrigante que atrape y llame demasiado la atención!",
   "page.crearPost.cardEjemplo.contenido.placeholder": "En este espacio puedes describir cómo estár el día de hoy, alguna idea, momento o reflexión para compartir con tus amigos.",
   "page.crearPost.modal.contenido.exitoso": "Se ha creado el post de forma correcta.",
+  "page.crearPost.modal.contenido.error": "No se pudo completar la operación.",
 
   "page.misPosts.title": "Mis posts",
   "page.misPosts.input.title": "Filtra por fecha",

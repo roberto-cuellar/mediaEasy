@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { CommonResponse } from '../../../utils/interfaces';
+import { CommonResponse, PostPayload } from '../../../utils/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -21,14 +21,27 @@ export class PostsService {
     return this.http.post<CommonResponse>(url,payload)
   }
 
+
+
   // Metodo encargado de traer los post
-  verPosts(userId: string, page: Number, len: Number){
+  verPosts( payload: PostPayload ){
     const url = `${ this.baseUrl }/posts/view`;
-    const params = new HttpParams()
-      .set('userId', userId)
-      .set('page', String(page))
-      .set('len', String(len))
+    let params = new HttpParams()
+      .set('page', String(payload.page))
+      .set('len', String(payload.len))
+
+    if(!!payload.userId){
+      params = params.append('userId', payload.userId!);
+    }
+    if(!!payload.title){
+      params = params.append('title', payload.title!);
+    }
+    if(!!payload.date){
+      params = params.append('date', payload.date!);
+    }
+
     return this.http.get<CommonResponse>(url,{params})
   }
 
 }
+

@@ -1,5 +1,9 @@
 <ion-item button="true" >
-  <ion-label>{{'COMMON.calendario.title'|translate}}</ion-label>
+
+  <ion-label *ngIf="!title; else mostrarFecha">{{'COMMON.calendario.title'|translate}}</ion-label>
+  <ng-template #mostrarFecha>
+    <ion-label >{{title}}</ion-label>
+  </ng-template>
   <ion-button fill="clear" shape="round">
     <ion-icon  name="chevron-down-outline"></ion-icon>
   </ion-button>

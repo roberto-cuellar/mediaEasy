@@ -20,6 +20,7 @@ import { MensajesPopoverComponent } from './components/shared/popovers/mensajes-
 import { MensajePopoverCardComponent } from './components/shared/mensaje-popover-card/mensaje-popover-card.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptorService } from './interceptors/token/token-interceptor.service';
+import { VersionOnePaginatorComponent } from './components/shared/paginadores/version-one/version-one.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TokenInterceptorService } from './interceptors/token/token-interceptor.
     GeneralDateComponent,
     CardPostComponent,
     MensajesPopoverComponent,
-    MensajePopoverCardComponent
+    MensajePopoverCardComponent,
+    VersionOnePaginatorComponent
   ],
   imports: [
     CommonModule,

@@ -49,3 +49,6 @@ interface BodyResponse {
   token: string;
 }
 
+export interface PostPayload {
+  page: Number, len: Number, title?: string  , date?: string , userId?: string
+}
